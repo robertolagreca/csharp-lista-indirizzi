@@ -18,6 +18,9 @@ List<DataUser> dataList = new List<DataUser>();
 
 file = File.OpenText("C:\\Users\\robsm\\Documents\\Generation Coding\\Dotnet\\ListaIndirizzi\\ListaIndirizzi\\File\\addresses.csv");
 
+line = file.ReadLine(); //Legge qui la prima linea. Posso usare anche un contatore in alternativa e gli dico
+                        //di non prendere la riga 0.
+
 while (!file.EndOfStream)
 {
     line = file.ReadLine();
@@ -25,19 +28,35 @@ while (!file.EndOfStream)
 
     string[] singleData = line.Split(",");
 
-//PRIMA SOLUZIONE  
+//AVVISO
 //formattazione del csv, in modo che se ci fossero dati mancanti lascia il vuoto.
 
-    name = singleData[0];
-    surname= singleData[1];
-    address= singleData[2];
-    city= singleData[3];
-    province= singleData[4];
-    zip= singleData[5];
+//if (singleData.Length == 6)
+//Se metto qua il tutto mi toglie quelli che non arrivano a 6 campi
+//{ }
 
+   /* name = singleData[0];
+    surname = singleData[1];
+    address = singleData[2];
+    city = singleData[3];
+    province = singleData[4];
+    zip = singleData[5]; */
 
-DataUser dataRow = new DataUser(name, surname, address, city, province, zip);
-dataList.Add(dataRow);
+//ciclo for
+ for(int i = 0; i < singleData.Length; i++)
+    {
+        if (singleData[i] == "")
+        {
+            singleData[i] = "Campo mancante";
+        }
+    }
+
+DataUser dataRow = new DataUser(singleData[0], singleData[1], singleData[2], singleData[3], singleData[4], singleData[5]);
+
+ //DataUser dataRow = new DataUser(name, surname, address, city, province, zip);
+
+    dataList.Add(dataRow);
+
 
 }
 
