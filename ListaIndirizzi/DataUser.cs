@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ListaIndirizzi
 {
-    internal class DataUser
+    public class DataUser
     {
         private string _name, _surname, _address, _city, _province, _zip;
 
@@ -33,5 +33,14 @@ namespace ListaIndirizzi
         public void SetCity(string city) { _city = city; }
         public void SetProvince(string province) { _province = province; }
         public void SetZip(string zip) { _zip = zip; }
+
+
+        public override string ToString()
+        {
+            return $"{_name},{_surname},{_address},{_city},{_province},{_zip}";
+        }
     }
+
+
+    
 }
