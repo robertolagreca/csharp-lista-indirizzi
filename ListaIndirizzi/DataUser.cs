@@ -27,7 +27,6 @@ namespace ListaIndirizzi
         public string GetProvince() { return _province; }
         public string GetZip() { return _zip; }
 
-        public void SetName(string name) { _name = name; }
         public void SetSurname(string surname) { _surname = surname; }
         public void SetAddress(string address) { _address = address; }
         public void SetCity(string city) { _city = city; }

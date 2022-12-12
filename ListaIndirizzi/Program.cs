@@ -28,7 +28,7 @@ while (!file.EndOfStream)
 //PRIMA SOLUZIONE  
 //formattazione del csv, in modo che se ci fossero dati mancanti lascia il vuoto.
 
-name = singleData[0];
+    name = singleData[0];
     surname= singleData[1];
     address= singleData[2];
     city= singleData[3];
@@ -38,6 +38,7 @@ name = singleData[0];
 
 DataUser dataRow = new DataUser(name, surname, address, city, province, zip);
 dataList.Add(dataRow);
+
 }
 
 file.Close();
@@ -46,5 +47,8 @@ file.Close();
 foreach (DataUser data in dataList)
 {
     Console.WriteLine(data);
+    //Console.WriteLine(data.GetName());
     Console.WriteLine(Environment.NewLine);
+
 }
+
